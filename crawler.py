@@ -11,4 +11,3 @@ class Crawler:
         with Chromium(debug=self.debug) as driver:
             driver.get(self.url)
 
-

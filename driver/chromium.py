@@ -1,8 +1,10 @@
 import undetected_chromedriver as uc
 from selenium import webdriver
 
+from driver.abstract import Abstract
 
-class Chromium:
+
+class Chromium(Abstract):
 
     def __init__(self, debug=False):
         self.options = webdriver.ChromeOptions()
