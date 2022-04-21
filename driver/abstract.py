@@ -5,14 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class Abstract:
 
-    @staticmethod
-    def wait_until_class_name(driver, class_name, timeout=60):
-        return WebDriverWait(driver, timeout).until(
+    def __init__(self, driver, timeout=60):
+        self.driver = driver
+        self.timeout = timeout
+
+    def wait_until_class_name(self, class_name: str):
+        return WebDriverWait(self.driver, self.timeout).until(
             expected_conditions.presence_of_element_located((By.CLASS_NAME, class_name))
         )
 
-    @staticmethod
-    def wait_unitl_tag_name(driver, tag_name, timeout=60):
-        return WebDriverWait(driver, timeout).until(
+    def wait_unitl_tag_name(self, tag_name: str):
+        return WebDriverWait(self.driver, self.timeout).until(
             expected_conditions.presence_of_element_located((By.TAG_NAME, tag_name))
         )
