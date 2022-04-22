@@ -1,4 +1,5 @@
 import undetected_chromedriver as uc
+from fake_useragent import UserAgent
 from selenium import webdriver
 
 from driver.abstract import Abstract
@@ -8,6 +9,10 @@ class Chromium(Abstract):
 
     def __init__(self, debug=False):
         self.options = webdriver.ChromeOptions()
+        ua = UserAgent()
+        user_agent = ua.random
+        self.options.add_argument(f'user-agent={user_agent}')
+
         if not debug:
             self.options.add_argument("--headless")
 
