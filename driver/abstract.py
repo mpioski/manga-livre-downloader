@@ -16,3 +16,4 @@ class Abstract:
         return WebDriverWait(element, timeout).until(
             expected_conditions.presence_of_element_located((By.TAG_NAME, tag_name))
         )
+

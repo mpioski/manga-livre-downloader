@@ -16,7 +16,9 @@ class Chromium(Abstract):
         return self
 
     def __instance_driver(self):
+        print("Instanciando driver do chrome")
         self.driver = uc.Chrome(options=self.options)
+        self.driver.implicitly_wait(10)
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.driver.close()
