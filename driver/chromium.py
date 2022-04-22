@@ -12,6 +12,7 @@ class Chromium(Abstract):
         ua = UserAgent()
         user_agent = ua.random
         self.options.add_argument(f'user-agent={user_agent}')
+        self.options.add_argument("start-maximized")
 
         if not debug:
             self.options.add_argument("--headless")
