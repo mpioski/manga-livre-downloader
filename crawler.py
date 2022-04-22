@@ -8,6 +8,7 @@ class Crawler:
         self.debug = debug
 
     def start(self):
-        with Chromium(debug=self.debug) as driver:
+        with Chromium(debug=self.debug) as chromium:
+            driver = chromium.driver
             driver.get(self.url)
 

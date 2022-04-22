@@ -11,11 +11,9 @@ class Chromium(Abstract):
         if not debug:
             self.options.add_argument("--headless")
 
-        self.__instance_driver()
-        super().__init__(driver=self.driver)
-
     def __enter__(self):
-        return self.driver
+        self.__instance_driver()
+        return self
 
     def __instance_driver(self):
         self.driver = uc.Chrome(options=self.options)
